@@ -84,6 +84,13 @@ public class Bot extends TelegramLongPollingBot {
                     base.insertUsername(userId);
                 }
             }
+        } else {
+            Message message = update.getMessage();
+            if (message != null) {
+                SendMessage sendMessage = createSendMessage(message);
+                sendMessage.setText("Hello, it is a test");
+                sendBaseMessage(sendMessage);
+            }
         }
     }
 
