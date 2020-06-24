@@ -17,8 +17,8 @@ public class SchedulerMessage extends TimerTask {
 
     public SchedulerMessage() {
         ZoneId zone = ZoneId.of("Europe/Moscow");
-        this.startRuffle = ZonedDateTime.of(LocalDateTime.of(2020, 6, 23, 20, 0, 0), zone);
-        this.endRuffle = ZonedDateTime.of(LocalDateTime.of(2020, 7, 23, 20, 0, 0), zone);
+        this.startRuffle = ZonedDateTime.of(LocalDateTime.of(2020, 6, 24, 20, 0, 0), zone);
+        this.endRuffle = ZonedDateTime.of(LocalDateTime.of(2020, 7, 30, 20, 0, 0), zone);
         this.isStartMessageSend = false;
         this.isEndMessageSend = false;
         this.bot = new Bot();
