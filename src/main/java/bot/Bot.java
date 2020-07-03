@@ -27,10 +27,10 @@ import java.util.Timer;
 
 public class Bot extends TelegramLongPollingBot {
 
-    private final long CHAT_ID_1 = -1001326542318L;
-    private final long CHAT_ID_2 = -1001408738102L;
-    private final String CHAT_NAME_1 = "ИгроNews";
-    private final String CHAT_NAME_2 = "PCNEWS";
+    private final long CHAT_ID_1 = -1001461357622L;
+    private final long CHAT_ID_2 = -1001167513241L;
+    private final String CHAT_NAME_1 = "Вокабуля́рий";
+    private final String CHAT_NAME_2 = "Программистка";
 
     public static void main(String[] args) {
         ApiContextInitializer.init();
@@ -88,7 +88,7 @@ public class Bot extends TelegramLongPollingBot {
             Message message = update.getMessage();
             if (message != null) {
                 SendMessage sendMessage = createSendMessage(message);
-                sendMessage.setText("Hello, it is a test");
+                sendMessage.setText("Hello, my name is Jhony");
                 sendBaseMessage(sendMessage);
             }
         }
@@ -96,11 +96,11 @@ public class Bot extends TelegramLongPollingBot {
 
 
     public String getBotUsername() {
-        return "VoterBlBot";
+        return "Jhony_pirat_bot";
     }
 
     public String getBotToken() {
-        return "1013132905:AAHWCa_gYedoqf6od3GwiSGx7fZQY3hEDH4";
+        return "1288138052:AAFou7f9ij20NBGbbII6C-2z33f35O2Id_w";
     }
 
     private void sendMessage(Message message, String text) {
@@ -154,7 +154,7 @@ public class Bot extends TelegramLongPollingBot {
 
         InlineKeyboardMarkup replyKeyboard = new InlineKeyboardMarkup();
         List<InlineKeyboardButton> row = new ArrayList<>();
-        row.add(new InlineKeyboardButton().setText("(0) " + RuffleText.TAKE_PARTICIPANT.getText())
+        row.add(new InlineKeyboardButton().setText(getRuffleButtonText())
                 .setCallbackData("/participate"));
         List<List<InlineKeyboardButton>> rows = new ArrayList<>();
         rows.add(row);
@@ -247,7 +247,7 @@ public class Bot extends TelegramLongPollingBot {
 
     private String getRuffleButtonText() {
         H2 base = H2.getInstance();
-        int count = base.getCountParticipant() + 1;
+        int count = base.getCountParticipant();
         return "(" + count + ")" + RuffleText.TAKE_PARTICIPANT.getText();
     }
 
