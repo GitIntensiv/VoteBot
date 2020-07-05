@@ -18,7 +18,6 @@ import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.exceptions.TelegramApiException;
 import org.telegram.telegrambots.exceptions.TelegramApiRequestException;
 import time.SchedulerMessage;
-import time.SchedulerTask;
 import utils.Settings;
 
 import java.util.ArrayList;
@@ -27,17 +26,19 @@ import java.util.Timer;
 
 public class Bot extends TelegramLongPollingBot {
 
-    private final long CHAT_ID_1 = -1001461357622L;
-    private final long CHAT_ID_2 = -1001167513241L;
+    //    private final long CHAT_ID_1 = -1001461357622L;
+//    private final long CHAT_ID_2 = -1001167513241L;
+    private final long CHAT_ID_1 = -1001364823254L;
+    private final long CHAT_ID_2 = -1001447867898L;
     private final String CHAT_NAME_1 = "Вокабуля́рий";
     private final String CHAT_NAME_2 = "Программистка";
 
     public static void main(String[] args) {
         ApiContextInitializer.init();
         Timer time = new Timer();
-        SchedulerMessage st = new SchedulerMessage();
-        SchedulerTask task = new SchedulerTask();
-        time.schedule(task, 0, 1000 * 60 * 30);
+        SchedulerMessage st = new SchedulerMessage(); // отправка конечного и начального сообщение
+//        SchedulerTask task = new SchedulerTask(); // пинг гугла
+//        time.schedule(task, 0, 1000 * 60 * 30);
         time.schedule(st, 0, 1000);
         TelegramBotsApi botsApi = new TelegramBotsApi();
         try {
@@ -103,18 +104,19 @@ public class Bot extends TelegramLongPollingBot {
         return "1288138052:AAFou7f9ij20NBGbbII6C-2z33f35O2Id_w";
     }
 
-    private void sendMessage(Message message, String text) {
-        SendMessage sendMessage = createSendMessage(message, text);
-        sendBaseMessage(sendMessage);
-    }
 
-    private void sendMessageInOtherChat(Long id, String text) {
-        SendMessage sendMessage = new SendMessage();
-        sendMessage.enableMarkdown(true);
-        sendMessage.setChatId(id);
-        sendMessage.setText(text);
-        sendBaseMessage(sendMessage);
-    }
+//    private void sendMessage(Message message, String text) {
+//        SendMessage sendMessage = createSendMessage(message, text);
+//        sendBaseMessage(sendMessage);
+//    }
+//
+//    private void sendMessageInOtherChat(Long id, String text) {
+//        SendMessage sendMessage = new SendMessage();
+//        sendMessage.enableMarkdown(true);
+//        sendMessage.setChatId(id);
+//        sendMessage.setText(text);
+//        sendBaseMessage(sendMessage);
+//    }
 
     private void sendBaseMessage(SendMessage sendMessage) {
         try {
@@ -132,11 +134,11 @@ public class Bot extends TelegramLongPollingBot {
         }
     }
 
-    private SendMessage createSendMessage(Message message, String text) {
-        SendMessage sendMessage = createSendMessage(message);
-        sendMessage.setText(text);
-        return sendMessage;
-    }
+//    private SendMessage createSendMessage(Message message, String text) {
+//        SendMessage sendMessage = createSendMessage(message);
+//        sendMessage.setText(text);
+//        return sendMessage;
+//    }
 
 
     private SendMessage createSendMessage(Message message) {
@@ -150,7 +152,7 @@ public class Bot extends TelegramLongPollingBot {
         SendMessage sendMessage = new SendMessage();
         sendMessage.enableMarkdown(true);
         sendMessage.setText(RuffleText.START_RUFFLE.getText())
-        .disableWebPagePreview();
+                .disableWebPagePreview();
 
         InlineKeyboardMarkup replyKeyboard = new InlineKeyboardMarkup();
         List<InlineKeyboardButton> row = new ArrayList<>();
