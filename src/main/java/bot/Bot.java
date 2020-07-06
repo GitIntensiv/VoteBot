@@ -26,10 +26,10 @@ import java.util.Timer;
 
 public class Bot extends TelegramLongPollingBot {
 
-    //    private final long CHAT_ID_1 = -1001461357622L;
-//    private final long CHAT_ID_2 = -1001167513241L;
-    private final long CHAT_ID_1 = -1001364823254L;
-    private final long CHAT_ID_2 = -1001447867898L;
+    private final long CHAT_ID_1 = -1001461357622L;
+    private final long CHAT_ID_2 = -1001167513241L;
+    //    private final long CHAT_ID_1 = -1001364823254L;
+//    private final long CHAT_ID_2 = -1001447867898L;
     private final String CHAT_NAME_1 = "Вокабуля́рий";
     private final String CHAT_NAME_2 = "Программистка";
 
