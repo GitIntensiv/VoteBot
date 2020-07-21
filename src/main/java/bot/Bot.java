@@ -26,21 +26,19 @@ import java.util.Timer;
 
 public class Bot extends TelegramLongPollingBot {
 
-    private final long CHAT_ID_1 = -1001461357622L;
-    private final long CHAT_ID_2 = -1001167513241L;
-    //    private final long CHAT_ID_1 = -1001364823254L;
-//    private final long CHAT_ID_2 = -1001447867898L;
-    private final String CHAT_NAME_1 = "Вокабуля́рий";
-    private final String CHAT_NAME_2 = "Программистка";
+    private final long CHAT_ID_1 = -1001326542318L;
+    private final long CHAT_ID_2 = -1001408738102L;
+    private final String CHAT_NAME_1 = "ИгроNews";
+    private final String CHAT_NAME_2 = "PCNEWS";
 
     public static void main(String[] args) {
         ApiContextInitializer.init();
         Timer time = new Timer();
-        SchedulerMessage st = new SchedulerMessage(); // отправка конечного и начального сообщение
-//        SchedulerTask task = new SchedulerTask(); // пинг гугла
-//        time.schedule(task, 0, 1000 * 60 * 30);
+        SchedulerMessage st = new SchedulerMessage();
         time.schedule(st, 0, 1000);
         TelegramBotsApi botsApi = new TelegramBotsApi();
+        Settings.getInstance().setChat1MessageId(446);
+        Settings.getInstance().setChat2MessageId(846);
         try {
             botsApi.registerBot(new Bot());
         } catch (TelegramApiRequestException e) { //ToDo прикрутить логирование
@@ -91,7 +89,7 @@ public class Bot extends TelegramLongPollingBot {
             Message message = update.getMessage();
             if (message != null) {
                 SendMessage sendMessage = createSendMessage(message);
-                sendMessage.setText("Hello, my name is Jhony");
+                sendMessage.setText("Hello, it is a test");
                 sendBaseMessage(sendMessage);
             }
         }
@@ -99,13 +97,12 @@ public class Bot extends TelegramLongPollingBot {
 
 
     public String getBotUsername() {
-        return "Jhony_pirat_bot";
+        return "VoterBlBot";
     }
 
     public String getBotToken() {
-        return "1288138052:AAFou7f9ij20NBGbbII6C-2z33f35O2Id_w";
+        return "1013132905:AAHWCa_gYedoqf6od3GwiSGx7fZQY3hEDH4";
     }
-
 
 //    private void sendMessage(Message message, String text) {
 //        SendMessage sendMessage = createSendMessage(message, text);
@@ -148,38 +145,6 @@ public class Bot extends TelegramLongPollingBot {
         sendMessage.enableMarkdown(true);
         sendMessage.setChatId(message.getChatId());
         return sendMessage;
-    }
-
-    public void sendStartMessage() {
-        SendMessage sendMessage = new SendMessage();
-        sendMessage.enableMarkdown(true);
-        sendMessage.setText(RuffleText.START_RUFFLE.getText())
-                .disableWebPagePreview();
-
-        InlineKeyboardMarkup replyKeyboard = new InlineKeyboardMarkup();
-        List<InlineKeyboardButton> row = new ArrayList<>();
-        row.add(new InlineKeyboardButton().setText(getRuffleButtonText())
-                .setCallbackData("/participate"));
-        List<List<InlineKeyboardButton>> rows = new ArrayList<>();
-        rows.add(row);
-        replyKeyboard.setKeyboard(rows);
-        sendMessage.setReplyMarkup(replyKeyboard);
-
-        sendMessage.setChatId(CHAT_ID_1);
-        try {
-            Message sendFirstMessage = sendApiMethod(sendMessage);
-            Settings.getInstance().setChat1MessageId(sendFirstMessage.getMessageId());
-        } catch (TelegramApiException e) {
-            e.printStackTrace();
-        }
-
-        sendMessage.setChatId(CHAT_ID_2);
-        try {
-            Message sendSecondMessage = sendApiMethod(sendMessage);
-            Settings.getInstance().setChat2MessageId(sendSecondMessage.getMessageId());
-        } catch (TelegramApiException e) {
-            e.printStackTrace();
-        }
     }
 
     public void sendEndMessage() {
