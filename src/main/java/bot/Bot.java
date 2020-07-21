@@ -26,10 +26,10 @@ import java.util.Timer;
 
 public class Bot extends TelegramLongPollingBot {
 
-    private final long CHAT_ID_1 = -1001326542318L;
-    private final long CHAT_ID_2 = -1001408738102L;
-    private final String CHAT_NAME_1 = "ИгроNews";
-    private final String CHAT_NAME_2 = "PCNEWS";
+    private final long CHAT_ID_1 = -1001364823254L;
+    private final long CHAT_ID_2 = -1001447867898L;
+    private final String CHAT_NAME_1 = "Вокабуля́рий";
+    private final String CHAT_NAME_2 = "Программистка";
 
     public static void main(String[] args) {
         ApiContextInitializer.init();
@@ -37,8 +37,8 @@ public class Bot extends TelegramLongPollingBot {
         SchedulerMessage st = new SchedulerMessage();
         time.schedule(st, 0, 1000);
         TelegramBotsApi botsApi = new TelegramBotsApi();
-        Settings.getInstance().setChat1MessageId(446);
-        Settings.getInstance().setChat2MessageId(846);
+        Settings.getInstance().setChat1MessageId(561);
+        Settings.getInstance().setChat2MessageId(380);
         try {
             botsApi.registerBot(new Bot());
         } catch (TelegramApiRequestException e) { //ToDo прикрутить логирование
@@ -97,11 +97,11 @@ public class Bot extends TelegramLongPollingBot {
 
 
     public String getBotUsername() {
-        return "VoterBlBot";
+        return "Jhony_pirat_bot";
     }
 
     public String getBotToken() {
-        return "1013132905:AAHWCa_gYedoqf6od3GwiSGx7fZQY3hEDH4";
+        return "1288138052:AAFou7f9ij20NBGbbII6C-2z33f35O2Id_w";
     }
 
 //    private void sendMessage(Message message, String text) {

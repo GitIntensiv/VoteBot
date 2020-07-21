@@ -6,7 +6,7 @@ import java.sql.*;
 
 public class H2 {
     private final String JDBC_DRIVER = "org.h2.Driver";
-    private final String DB_URL = "jdbc:h2:~/test";
+    private final String DB_URL = "jdbc:h2:~/out";
     private final String USER = "admin";
     private final String PASS = "12345";
 
@@ -92,7 +92,7 @@ public class H2 {
             ResultSet resultSet = statement.executeQuery(BaseRequest.GET_ALL.getText());
             if (resultSet.next()) {
                 resultSet.last();
-                return resultSet.getRow() + 8441;
+                return resultSet.getRow() + 1115;
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -105,7 +105,7 @@ public class H2 {
                 }
             }
         }
-        return 8441;
+        return 1115;
     }
 
     private void createTable() {
