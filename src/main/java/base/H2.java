@@ -92,7 +92,7 @@ public class H2 {
             ResultSet resultSet = statement.executeQuery(BaseRequest.GET_ALL.getText());
             if (resultSet.next()) {
                 resultSet.last();
-                return resultSet.getRow();
+                return resultSet.getRow() + 8441;
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -105,7 +105,7 @@ public class H2 {
                 }
             }
         }
-        return 0;
+        return 8441;
     }
 
     private void createTable() {
