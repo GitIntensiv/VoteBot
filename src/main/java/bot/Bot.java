@@ -48,55 +48,62 @@ public class Bot extends TelegramLongPollingBot {
     }
 
     public void onUpdateReceived(Update update) {
-        H2 base = H2.getInstance();
-        CallbackQuery callbackQuery = update.getCallbackQuery();
-        if (callbackQuery != null) {
-            if (callbackQuery.getData().equals("/participate")) {
-                Integer userId = callbackQuery.getFrom().getId();
-                Long chatId = callbackQuery.getMessage().getChatId();
-                AnswerCallbackQuery answer = new AnswerCallbackQuery();
-                answer.setCallbackQueryId(callbackQuery.getId());
+        Runnable task = () -> {
+            H2 base = H2.getInstance();
+            CallbackQuery callbackQuery = update.getCallbackQuery();
+            if (callbackQuery != null) {
+                if (callbackQuery.getData().equals("/participate")) {
+                    Integer userId = callbackQuery.getFrom().getId();
+                    Long chatId = callbackQuery.getMessage().getChatId();
+                    AnswerCallbackQuery answer = new AnswerCallbackQuery();
+                    answer.setCallbackQueryId(callbackQuery.getId());
 
-                if (chatId == CHAT_ID_1) {
-                    if (!checkSignOnFirstChanell(answer, userId)) {
-                        answer.setText(AlertText.NOT_SIGNED.getText() + CHAT_NAME_1);
-                        return;
+                    if (chatId == CHAT_ID_1) {
+                        if (!checkSignOnFirstChanell(answer, userId)) {
+                            answer.setText(AlertText.NOT_SIGNED.getText() + CHAT_NAME_1);
+                            sendBaseAnswer(answer);
+                            return;
+                        }
+                        if (!checkSignOnSecondChanell(answer, userId)) {
+                            answer.setText(AlertText.NOT_SIGNED.getText() + CHAT_NAME_2);
+                            sendBaseAnswer(answer);
+                            return;
+                        }
                     }
-                    if (!checkSignOnSecondChanell(answer, userId)) {
-                        answer.setText(AlertText.NOT_SIGNED.getText() + CHAT_NAME_2);
-                        return;
+
+                    if (chatId == CHAT_ID_2) {
+                        if (!checkSignOnSecondChanell(answer, userId)) {
+                            answer.setText(AlertText.NOT_SIGNED.getText() + CHAT_NAME_2);
+                            sendBaseAnswer(answer);
+                            return;
+                        }
+                        if (!checkSignOnFirstChanell(answer, userId)) {
+                            answer.setText(AlertText.NOT_SIGNED.getText() + CHAT_NAME_1);
+                            sendBaseAnswer(answer);
+                            return;
+                        }
+                    }
+
+                    if (base.isExitUsername(userId)) {
+                        answer.setText(AlertText.YET_PARTICIPATE.getText());
+                        sendBaseAnswer(answer);
+                    } else {
+                        answer.setText(AlertText.START_PARTICIPATE.getText());
+                        sendBaseAnswer(answer);
+                        base.insertUsername(userId);
+                        sendEditMessage();
                     }
                 }
-
-                if (chatId == CHAT_ID_2) {
-                    if (!checkSignOnSecondChanell(answer, userId)) {
-                        answer.setText(AlertText.NOT_SIGNED.getText() + CHAT_NAME_2);
-                        return;
-                    }
-                    if (!checkSignOnFirstChanell(answer, userId)) {
-                        answer.setText(AlertText.NOT_SIGNED.getText() + CHAT_NAME_1);
-                        return;
-                    }
-                }
-
-                if (base.isExitUsername(userId)) {
-                    answer.setText(AlertText.YET_PARTICIPATE.getText());
-                    sendBaseAnswer(answer);
-                } else {
-                    answer.setText(AlertText.START_PARTICIPATE.getText());
-                    sendBaseAnswer(answer);
-                    base.insertUsername(userId);
-                    sendEditMessage();
+            } else {
+                Message message = update.getMessage();
+                if (message != null) {
+                    SendMessage sendMessage = createSendMessage(message);
+                    sendMessage.setText("Hello, it is a test");
+                    sendBaseMessage(sendMessage);
                 }
             }
-        } else {
-            Message message = update.getMessage();
-            if (message != null) {
-                SendMessage sendMessage = createSendMessage(message);
-                sendMessage.setText("Hello, it is a test");
-                sendBaseMessage(sendMessage);
-            }
-        }
+        };
+        task.run();
     }
 
 
