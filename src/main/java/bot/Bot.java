@@ -57,18 +57,22 @@ public class Bot extends TelegramLongPollingBot {
 
                 if (chatId == CHAT_ID_1) {
                     if (!checkSignOnFirstChanell(answer, userId)) {
+                        answer.setText(AlertText.NOT_SIGNED.getText() + CHAT_NAME_1);
                         return;
                     }
                     if (!checkSignOnSecondChanell(answer, userId)) {
+                        answer.setText(AlertText.NOT_SIGNED.getText() + CHAT_NAME_2);
                         return;
                     }
                 }
 
                 if (chatId == CHAT_ID_2) {
                     if (!checkSignOnSecondChanell(answer, userId)) {
+                        answer.setText(AlertText.NOT_SIGNED.getText() + CHAT_NAME_2);
                         return;
                     }
                     if (!checkSignOnFirstChanell(answer, userId)) {
+                        answer.setText(AlertText.NOT_SIGNED.getText() + CHAT_NAME_1);
                         return;
                     }
                 }
