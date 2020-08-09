@@ -37,6 +37,8 @@ public class Bot extends TelegramLongPollingBot {
         SchedulerMessage st = new SchedulerMessage();
         time.schedule(st, 0, 1000);
         TelegramBotsApi botsApi = new TelegramBotsApi();
+        Settings.getInstance().setChat1MessageId(937);
+        Settings.getInstance().setChat2MessageId(1246);
         try {
             botsApi.registerBot(new Bot());
         } catch (TelegramApiRequestException e) { //ToDo прикрутить логирование
@@ -147,38 +149,6 @@ public class Bot extends TelegramLongPollingBot {
         sendMessage.enableMarkdown(true);
         sendMessage.setChatId(message.getChatId());
         return sendMessage;
-    }
-
-    public void sendStartMessage() {
-        SendMessage sendMessage = new SendMessage();
-        sendMessage.enableMarkdown(true);
-        sendMessage.setText(RuffleText.START_RUFFLE.getText())
-                .disableWebPagePreview();
-
-        InlineKeyboardMarkup replyKeyboard = new InlineKeyboardMarkup();
-        List<InlineKeyboardButton> row = new ArrayList<>();
-        row.add(new InlineKeyboardButton().setText(getRuffleButtonText())
-                .setCallbackData("/participate"));
-        List<List<InlineKeyboardButton>> rows = new ArrayList<>();
-        rows.add(row);
-        replyKeyboard.setKeyboard(rows);
-        sendMessage.setReplyMarkup(replyKeyboard);
-
-        sendMessage.setChatId(CHAT_ID_1);
-        try {
-            Message sendFirstMessage = sendApiMethod(sendMessage);
-            Settings.getInstance().setChat1MessageId(sendFirstMessage.getMessageId());
-        } catch (TelegramApiException e) {
-            e.printStackTrace();
-        }
-
-        sendMessage.setChatId(CHAT_ID_2);
-        try {
-            Message sendSecondMessage = sendApiMethod(sendMessage);
-            Settings.getInstance().setChat2MessageId(sendSecondMessage.getMessageId());
-        } catch (TelegramApiException e) {
-            e.printStackTrace();
-        }
     }
 
     public void sendEndMessage() {
