@@ -1,47 +1,41 @@
 package dictionary;
 
 public enum RuffleText {
-    START_RUFFLE("⚡️*РОЗЫГРЫШ НА 100К РУБЛЕЙ ОТ PCNEWS и ИГРОNEWS*\n" +
+    START_RUFFLE("\uD83D\uDCA3 *Розыгрыш компьютера, PS 5 и Cyberpunk 2077 collector’s edition*\n" +
             "\n" +
-            "*1 место*: Xbox One X - Cyberpunk 2077 Edition \n" +
-            "*2 место*: ПК за 50к рублей \n" +
-            "*3 место*: Игровая мышка и клавиатура \n" +
-            "*4 место*: Игра на ps4 Ghost of Tsushima \n" +
-            "*5 место*: Игра на ПК Death Stranding\n" +
-            "Вместо игр можно забрать деньги \uD83D\uDCB5\n" +
-            " \n" +
-            "*Всего 3 шага чтобы выиграть*: \n" +
+            "*Как всегда, всего три простых шага:*\n" +
             "\n" +
-            "1. [Подписаться на ИгроNews](https://t.me/joinchat/AAAAAE8Rbe5GHA8KEz7Iuw)\n" +
-            "2. [Подписаться на PCNEWS](https://t.me/joinchat/AAAAAFP3ozZWnRMiYnGfKQ) \n" +
-            "3. Под конкурсным постом нажать кнопку «Участвовать» (бот засчитает ваш клик сразу на двух каналах)\n" +
+            "1. Быть подписчиком [Personal Computer](https://t.me/personalcomputer_tg)\n" +
+            "2. Быть подписчиком [ИгроNews](https://t.me/game_new7)\n" +
+            "3. Нажать кнопку участвовать в закрепе\n" +
             "\n" +
+            "*19 ноября рандом-бот определит 3 победителя:*\n" +
             "\n" +
-            "\uD83E\uDD16 Итоги подведёт бот 30.07.2020г\n" ),
+            "\uD83E\uDD471 место - Компьютер за 100 тысяч рублей (комплектующие выбираете самостоятельно)\n" +
+            "\uD83E\uDD482 место - PlayStation 5\n" +
+            "\uD83E\uDD493 место - Cyberpunk 2077 collector’s edition\n" +
+            "\n" +
+            "Желаем удачи \uD83C\uDF40" ),
 
-    END_RUFFLE("⚡️*РОЗЫГРЫШ НА 100К РУБЛЕЙ ОТ PCNEWS и ИГРОNEWS*\n" +
+    END_RUFFLE("\uD83D\uDCA3 *Розыгрыш компьютера, PS 5 и Cyberpunk 2077 collector’s edition*\n" +
             "\n" +
-            "*1 место*: Xbox One X - Cyberpunk 2077 Edition \n" +
-            "*2 место*: ПК за 50к рублей \n" +
-            "*3 место*: Игровая мышка и клавиатура \n" +
-            "*4 место*: Игра на ps4 Ghost of Tsushima \n" +
-            "*5 место*: Игра на ПК Death Stranding\n" +
-            "Вместо игр можно забрать деньги \uD83D\uDCB5\n" +
-            " \n" +
-            "*Всего 3 шага чтобы выиграть*: \n" +
+            "*Как всегда, всего три простых шага:*\n" +
             "\n" +
-            "1. [Подписаться на ИгроNews](https://t.me/joinchat/AAAAAE8Rbe5GHA8KEz7Iuw)\n" +
-            "2. [Подписаться на PCNEWS](https://t.me/joinchat/AAAAAFP3ozZWnRMiYnGfKQ) \n" +
-            "3. Под конкурсным постом нажать кнопку «Участвовать» (бот засчитает ваш клик сразу на двух каналах)\n" +
+            "1. Быть подписчиком [Personal Computer](https://t.me/personalcomputer_tg)\n" +
+            "2. Быть подписчиком [ИгроNews](https://t.me/game_new7)\n" +
+            "3. Нажать кнопку участвовать в закрепе\n" +
             "\n" +
+            "*19 ноября рандом-бот определит 3 победителя:*\n" +
             "\n" +
-            "\uD83E\uDD16 Итоги подведёт бот 30.07.2020г\n"  +
+            "\uD83E\uDD471 место - Компьютер за 100 тысяч рублей (комплектующие выбираете самостоятельно)\n" +
+            "\uD83E\uDD482 место - PlayStation 5\n" +
+            "\uD83E\uDD493 место - Cyberpunk 2077 collector’s edition\n" +
+            "\n" +
+            "Желаем удачи \uD83C\uDF40" +
             "\\*\\*\\*\\*\\*\n" +
-            "Победители: [Максим Белкин](https://t.me/pivas21), " +
-            "[Морги M](https://t.me/morgisht), " +
-            "[Дарья Франц](https://t.me/dariaska01), " +
-            "[Frontik](https://t.me/frontikk), " +
-            "[Гомэрчик](https://t.me/coldsimsik)"),
+            "Победители: [Ⲁⳝⲣⲁⲕⲁⲇⲁⳝⲣⲁ](https://t.me/abrakadabra), " +
+            "[Владислав Вотяков](https://t.me/Legkinik), " +
+            "[Storm](https://t.me/shtormovoy)"),
     TAKE_PARTICIPANT(" Участвовать");
 
     private String text;
