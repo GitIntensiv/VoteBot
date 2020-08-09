@@ -88,9 +88,9 @@ public class Bot extends TelegramLongPollingBot {
                         answer.setText(AlertText.YET_PARTICIPATE.getText());
                         sendBaseAnswer(answer);
                     } else {
+                        base.insertUsername(userId);
                         answer.setText(AlertText.START_PARTICIPATE.getText());
                         sendBaseAnswer(answer);
-                        base.insertUsername(userId);
                         sendEditMessage();
                     }
                 }
