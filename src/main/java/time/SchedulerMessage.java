@@ -12,10 +12,11 @@ public class SchedulerMessage extends TimerTask {
     private ZonedDateTime endRuffle;
     private boolean isEndMessageSend;
     private Bot bot;
+    private boolean flag = false;
 
     public SchedulerMessage() {
         ZoneId zone = ZoneId.of("Europe/Moscow");
-        this.endRuffle = ZonedDateTime.of(LocalDateTime.of(2020, 8, 19, 20, 0, 0), zone);
+        this.endRuffle = ZonedDateTime.of(LocalDateTime.of(2020, 10, 19, 20, 0, 0), zone);
         this.isEndMessageSend = false;
         this.bot = new Bot();
     }
@@ -24,6 +25,10 @@ public class SchedulerMessage extends TimerTask {
     public void run() {
         ZoneId zone = ZoneId.of("Europe/Moscow");
         ZonedDateTime now = ZonedDateTime.of(LocalDateTime.now(), zone);
+        if (!flag) {
+            bot.sendEditMessage();
+            flag = true;
+        }
         if (now.isAfter(endRuffle) && !isEndMessageSend) {
             bot.sendEndMessage();
             isEndMessageSend = true;

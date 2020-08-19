@@ -44,7 +44,6 @@ public class Bot extends TelegramLongPollingBot {
         } catch (TelegramApiRequestException e) { //ToDo прикрутить логирование
             e.printStackTrace();
         }
-
     }
 
     public void onUpdateReceived(Update update) {
@@ -194,7 +193,7 @@ public class Bot extends TelegramLongPollingBot {
         return status.equals("member");
     }
 
-    private void sendEditMessage() {
+    public void sendEditMessage() {
         EditMessageText new_message = new EditMessageText()
                 .setText(RuffleText.START_RUFFLE.getText())
                 .enableMarkdown(true)
