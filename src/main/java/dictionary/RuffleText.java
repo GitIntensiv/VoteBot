@@ -6,7 +6,7 @@ public enum RuffleText {
             "*Как всегда, всего три простых шага:*\n" +
             "\n" +
             "1. Быть подписчиком [Computers World](https://t.me/ComputersWorld_tg)\n" +
-            "2. Быть подписчиком [\uD83D\uDC7E GAME ON \uD83D\uDC7E](https://t.me/in_gme)\n" +
+            "2. Быть подписчиком [⚡️ИгроNews⚡️](https://t.me/in_gme)\n" +
             "3. Нажать кнопку участвовать в закрепе\n" +
             "\n" +
             "*19 ноября рандом-бот определит 3 победителя:*\n" +
@@ -22,7 +22,7 @@ public enum RuffleText {
             "*Как всегда, всего три простых шага:*\n" +
             "\n" +
             "1. Быть подписчиком [Computers World](https://t.me/ComputersWorld_tg)\n" +
-            "2. Быть подписчиком [\uD83D\uDC7E GAME ON \uD83D\uDC7E](https://t.me/in_gme)\n" +
+            "2. Быть подписчиком [⚡️ИгроNews⚡️](https://t.me/in_gme)\n" +
             "3. Нажать кнопку участвовать в закрепе\n" +
             "\n" +
             "*19 ноября рандом-бот определит 3 победителя:*\n" +
