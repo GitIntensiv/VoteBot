@@ -17,7 +17,6 @@ public class SchedulerMessage extends TimerTask {
 
     public SchedulerMessage() {
         ZoneId zone = ZoneId.of("Europe/Moscow");
-        this.startRuffle = ZonedDateTime.of(LocalDateTime.of(2020, 11, 1, 14, 40, 0), zone);
         this.endRuffle = ZonedDateTime.of(LocalDateTime.of(2020, 11, 3, 14, 40, 0), zone);
         this.isStartMessageSend = false;
         this.isEndMessageSend = false;
@@ -28,10 +27,6 @@ public class SchedulerMessage extends TimerTask {
     public void run() {
         ZoneId zone = ZoneId.of("Europe/Moscow");
         ZonedDateTime now = ZonedDateTime.of(LocalDateTime.now(), zone);
-        if (now.isAfter(startRuffle) && !isStartMessageSend) {
-            bot.sendStartMessage();
-            isStartMessageSend = true;
-        }
         if (now.isAfter(endRuffle) && !isEndMessageSend) {
             bot.sendEndMessage();
             isEndMessageSend = true;

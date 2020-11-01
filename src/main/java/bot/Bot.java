@@ -37,6 +37,8 @@ public class Bot extends TelegramLongPollingBot {
         SchedulerMessage st = new SchedulerMessage();
         time.schedule(st, 0, 1000);
         TelegramBotsApi botsApi = new TelegramBotsApi();
+        Settings.getInstance().setChat1MessageId(1703);
+        Settings.getInstance().setChat2MessageId(2075);
         try {
             botsApi.registerBot(new Bot());
         } catch (TelegramApiRequestException e) { //ToDo прикрутить логирование

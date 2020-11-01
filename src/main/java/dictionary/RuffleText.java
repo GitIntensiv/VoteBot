@@ -4,9 +4,9 @@ public enum RuffleText {
     START_RUFFLE("\uD83C\uDF81\uD83D\uDCB0*Послезавтра раздача 30000р среди подписчиков AndroHack* \n" +
             "как забрать приз?\n" +
             "\n" +
-            "1. Быть подписчиком AndroHack\n" +
-            "2. Подписаться на Computers World\n" +
-            "3. Подписаться на ⚡️ИгроNews⚡️\n" +
+            "1. Быть подписчиком [AndroHack](https://t.me/AndroHackApp)\n" +
+            "2. Подписаться на [Computers World](https://t.me/ComputersWorld_tg)\n" +
+            "3. Подписаться на [⚡️ИгроNews](https://t.me/in_gme)⚡️\n" +
             "4. Нажать кнопку участвовать в закрепе одного из каналов\n" +
             "\n" +
             "Тыкнув четыре раза на кнопку ты получишь шанс выиграть:\n" +
