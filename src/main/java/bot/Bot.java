@@ -102,11 +102,11 @@ public class Bot extends TelegramLongPollingBot {
 
 
     public String getBotUsername() {
-        return "VoterBlBot";
+        return "One More";
     }
 
     public String getBotToken() {
-        return "1013132905:AAHWCa_gYedoqf6od3GwiSGx7fZQY3hEDH4";
+        return "1490473353:AAHTS6sypj8YmrdmAo3qL7cEyS_r9UYGYZ4";
     }
 
 //    private void sendMessage(Message message, String text) {
