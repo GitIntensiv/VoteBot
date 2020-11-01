@@ -6,7 +6,7 @@ import java.sql.*;
 
 public class H2 {
     private final String JDBC_DRIVER = "org.h2.Driver";
-    private final String DB_URL = "jdbc:h2:~/test";
+    private final String DB_URL = "jdbc:h2:~/new";
     private final String USER = "admin";
     private final String PASS = "12345";
 
