@@ -26,9 +26,9 @@ import java.util.Timer;
 
 public class Bot extends TelegramLongPollingBot {
 
-    private final long CHAT_ID_1 = -1001326542318L;
+    private final long CHAT_ID_1 = -1001306285220L;
     private final long CHAT_ID_2 = -1001408738102L;
-    private final String CHAT_NAME_1 = "⚡️ИгроNews⚡️";
+    private final String CHAT_NAME_1 = "Portablik";
     private final String CHAT_NAME_2 = "Computers World";
 
     public static void main(String[] args) {
