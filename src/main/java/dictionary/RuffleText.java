@@ -33,9 +33,9 @@ public enum RuffleText {
             "\n" +
             "Желаем удачи \uD83C\uDF40" +
             "\\*\\*\\*\\*\\*\n" +
-            "Победители: [Ⲁⳝⲣⲁⲕⲁⲇⲁⳝⲣⲁ](https://t.me/abrakadabra), " +
-            "[Владислав Вотяков](https://t.me/Legkinik), " +
-            "[Storm](https://t.me/shtormovoy)"),
+            "Победители: [Рома Мех](https://t.me/meh78), " +
+            "[Eva Dream](https://t.me/sun_bitch), " +
+            "[Остряк с окраины](https://t.me/La_Djay)"),
     TAKE_PARTICIPANT(" Участвовать");
 
     private String text;
